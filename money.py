@@ -34,7 +34,7 @@ def callback():
 
     return 'OK'
 
-n = 0
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
@@ -44,7 +44,7 @@ def handle_message(event):
     elif msg == '說話':
         n = 0
     r = '媽媽說好的獎學金呢'
-    if n == 0:
+    if n != 1:
         if msg in ['不', '沒有', '想太多']:
             r = '說話不算話,週日我不去了'
         elif msg in ['好', '好啦', '會給你']:
@@ -52,6 +52,12 @@ def handle_message(event):
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
+    elif n == 1:
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='好喔!'))
+
+
 
 
 if __name__ == "__main__":
