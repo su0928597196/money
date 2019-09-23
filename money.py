@@ -47,17 +47,20 @@ def handle_message(event):
         m += n
     elif msg == '說話':
         m = 0
-    
-    if m == 0:
-        if msg in ['不', '沒有', '想太多']:
-            r = '說話不算話,週日我不去了'
-        elif msg in ['好', '好啦', '會給你']:
-            r = '好,下次我會幫忙顧婆婆的'
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=r))
-    elif m >= 1:
-        return
+        TextSendMessage(text='好喔!'))
+    else:
+        if m == 0:
+            if msg in ['不', '沒有', '想太多']:
+                r = '說話不算話,週日我不去了'
+            elif msg in ['好', '好啦', '會給你']:
+                r = '好,下次我會幫忙顧婆婆的'
+            line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=r))
+        elif m >= 1:
+            return
 
 
 
