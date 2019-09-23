@@ -1,1 +1,1 @@
-web gunicorn app:money
+web gunicorn money:app
