@@ -7,12 +7,12 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
 )
 
 app = Flask(__name__)
 
-line_bot_api = LineBotApi('uNz4WmN6Ekhi32V+6397AVeQE03bSJU8k4RQ4FV9t6ZwDWYywABuNmT1255mwMSmYpsA5WeIc48LmlbrSDxY4hj47ySINwAO/OPLY0squlAOketT4DqfmS7zofY80u6rxFKCbdsO5biFey/2E7/OVAdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('DAD1pTI6Bgzdrzc3Az2aRrKhX1UJWHW6jeqrPF8S5zOCB8bgw6MezA3DPJ0ywNvvpsp5WeIc48LmlbrSDxY4hj47ySINwAO / OPLY0squlBS + 37InWAWWDW1WW1DW1DW1WWDW1W1DW1DW1DW1W1DW1DW1DW1DW1DW1DW1DW1DW1DW1DW1W')
 handler = WebhookHandler('dab6186a76822a5207cb032d59caa752')
 
 
@@ -35,34 +35,28 @@ def callback():
     return 'OK'
 
 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = '媽媽說好的獎學金呢'
-    n = 0
-    m = m + n
-    if msg == '安靜':
-        n = 1
-        m += n
-    elif msg == '說話':
-        m = 0
+    r = '請按照順序輸入1~5'
+    if msg == '5':
+        sticker_message = StickerSendMessage(package_id='11538',sticker_id='52002734')
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='好喔!'))
-    else:
-        if m == 0:
-            if msg in ['不', '沒有', '想太多']:
-                r = '說話不算話,週日我不去了'
-            elif msg in ['好', '好啦', '會給你']:
-                r = '好,下次我會幫忙顧婆婆的'
-            line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=r))
-        elif m >= 1:
-            return
-
-
+        sticker_message)
+    elif msg != '5':
+        if msg == '1':
+            r = '測試'
+        elif msg == '2':
+            r = '看來可以'
+        elif msg == '3':
+            r = '貼圖'
+        elif msg == '4':
+            r = '沒問題'
+        
+        line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=r))
 
 
 if __name__ == "__main__":
