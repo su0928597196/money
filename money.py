@@ -13,7 +13,7 @@ from linebot.models import (
 app = Flask(__name__)
 
 line_bot_api = LineBotApi('DAD1pTI6Bgzdrzc3Az2aRrKhX1UJWHW6jeqrPF8S5zOCB8bgw6MezA3DPJ0ywNvvpsp5WeIc48LmlbrSDxY4hj47ySINwAO / OPLY0squlBS + 37InWAWWDW1WW1DW1DW1WWDW1W1DW1DW1DW1W1DW1DW1DW1DW1DW1DW1DW1DW1DW1DW1W')
-handler = WebhookHandler('dab6186a76822a5207cb032d59caa752')
+handler = WebhookHandler('b3822d39b2ed2a8334ec048ae10714b1')
 
 
 @app.route("/callback", methods=['POST'])
@@ -40,7 +40,7 @@ def handle_message(event):
     msg = event.message.text
     r = '請按照順序輸入1~5'
     if msg == '5':
-        sticker_message = StickerSendMessage(package_id='11538',sticker_id='52002734')
+        sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
         line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
