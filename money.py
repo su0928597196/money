@@ -39,6 +39,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
+    sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
     r = '請按照順序輸入1~5'
     if msg == '5':
         sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
@@ -59,8 +60,7 @@ def handle_message(event):
         
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=r))
-        sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
+        TextSendMessage(text=r),sticker_message)
         line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
