@@ -39,15 +39,15 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    random = random.randint(1, 3)
-    if random == 1:
+    rd = random.randint(1, 3)
+    if rd == 1:
         r = '您好,請問有什麼是我可以為您服務的?'
-    elif random == 2:
+    elif rd == 2:
         r = '您好,請問需要些什麼'
-    elif random == 3:
+    elif rd == 3:
         r = '您好,如果您不知道怎麼使用,可以輸入「使用說明」'
 
-    
+
     if msg == '謝謝':
         sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
         line_bot_api.reply_message(
