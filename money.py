@@ -76,7 +76,6 @@ def handle_message(event):
             original_content_url = " https://i.imgur.com/RG6zFTv.mp4 ",
             preview_image_url = " https://i.imgur.com/RG6zFTv.jpg " )
             line_bot_api.reply_message(event.reply_token, video_message)
-）
         
         line_bot_api.reply_message(
         event.reply_token,
