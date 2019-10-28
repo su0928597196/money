@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage,ImageSendMessage
 )
 import random
 
@@ -42,8 +42,8 @@ def handle_message(event):
     r = '請按照順序輸入1~5'
     if msg == '謝謝':
         image_message = ImageSendMessage(
-        original_content_url='https://i.imgur.com/jIvkVXh.jpg',
-        preview_image_url='https://i.imgur.com/jIvkVXh.jpg')
+        original_content_url='https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg',
+        preview_image_url='https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg')
         line_bot_api.reply_message(event.reply_token, image_message)
     elif msg != '謝謝':
         if '販賣機' in msg:
