@@ -60,8 +60,8 @@ def handle_message(event):
         elif msg == '3':
             r = ''
             image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/jIvkVXh.jpg',
-            preview_image_url='https://i.imgur.com/jIvkVXh.jpg')
+            original_content_url='https://imgur.com/a/2AlXB0A/original.jpg',
+            preview_image_url='https://imgur.com/a/2AlXB0A/preview.jpg')
 
         
         line_bot_api.reply_message(
