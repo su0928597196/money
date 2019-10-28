@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage, ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage, ImageSendMessage, VideoSendMessage
 )
 import random
 
@@ -62,6 +62,21 @@ def handle_message(event):
             original_content_url = "https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg",
             preview_image_url = "https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg")
             line_bot_api.reply_message(event.reply_token, image_message)
+        elif msg == '4':
+            r = '這個專題內容是利用學習板來控制步進馬達旋轉的圈數以及角度,來達到販賣機的效果'
+        elif msg == '5':
+            r = ''
+            image_message = ImageSendMessage(
+            original_content_url = "https://i.imgur.com/RG6zFTv.mp4",
+            preview_image_url = "https://i.imgur.com/RG6zFTv.jpg")
+            line_bot_api.reply_message(event.reply_token, image_message)
+        elif msg == '6':
+            r = ''
+            video_message = VideoSendMessage（
+            original_content_url = " https://example.com/original.mp4 "，
+            preview_image_url = " https://example.com/preview.jpg " 
+            line_bot_api.reply_message(event.reply_token, video_message)
+）
         
         line_bot_api.reply_message(
         event.reply_token,
