@@ -9,7 +9,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
 )
-import ramdon
+import random
 
 app = Flask(__name__)
 
