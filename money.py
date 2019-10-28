@@ -39,7 +39,15 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    r = '請按照順序輸入1~5'
+    random = random.randint(1, 3)
+    if random == 1:
+        r = '您好,請問有什麼是我可以為您服務的?'
+    elif random == 2:
+        r = '您好,請問需要些什麼'
+    elif random == 3:
+        r = '您好,如果您不知道怎麼使用,可以輸入「使用說明」'
+
+    
     if msg == '謝謝':
         sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
         line_bot_api.reply_message(
@@ -57,7 +65,7 @@ def handle_message(event):
         elif msg == '2':
             r = '步進馬達:利用程式碼能控制旋轉次數,也能用可變電阻來控制它的旋轉ˇ'
         elif msg == '3':
-            r = ''
+            
             image_message = ImageSendMessage(
             original_content_url = "https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg",
             preview_image_url = "https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg")
@@ -65,7 +73,7 @@ def handle_message(event):
         elif msg == '4':
             r = '這個專題內容是利用學習板來控制步進馬達旋轉的圈數以及角度,來達到販賣機的效果'
         elif msg == '5':
-            r = ''
+            
             image_message = ImageSendMessage(
             original_content_url = "https://i.imgur.com/RG6zFTv.mp4",
             preview_image_url = "https://i.imgur.com/RG6zFTv.jpg")
@@ -76,6 +84,8 @@ def handle_message(event):
             original_content_url = " https://i.imgur.com/RG6zFTv.mp4 ",
             preview_image_url = " https://i.imgur.com/RG6zFTv.jpg " )
             line_bot_api.reply_message(event.reply_token, video_message)
+        elif msg == '使用說明':
+            r = '您好,請打出「販賣機」或「專題」'
         
         line_bot_api.reply_message(
         event.reply_token,
