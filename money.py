@@ -58,10 +58,10 @@ def handle_message(event):
         elif msg == '2':
             r = '步進馬達:利用程式碼能控制旋轉次數,也能用可變電阻來控制它的旋轉ˇ'
         elif msg == '3':
-            r = ''
+            r = '嗨'
             image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/jIvkVXh.jpg',
-            preview_image_url='https://i.imgur.com/jIvkVXh.jpg')
+            original_content_url='https://i.imgur.com/jIvkVXh.jpg/original.jpg',
+            preview_image_url='https://i.imgur.com/jIvkVXh.jpg/preview.jpg')
             line_bot_api.reply_message(event.reply_token, image_message)
         
         line_bot_api.reply_message(
