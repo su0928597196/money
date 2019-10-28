@@ -9,6 +9,7 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
 )
+import ramdon
 
 app = Flask(__name__)
 
@@ -45,10 +46,12 @@ def handle_message(event):
         event.reply_token,
         sticker_message)
     elif msg != '5':
-        if msg == '1':
-            r = '測試'
-        elif msg == '2':
-            r = '看來可以'
+        if '販賣機' in msg:
+            r = '您想知道甚麼?  自動販賣機功能,請輸入1; 零件介紹,請輸入2; 學習板介紹,請輸入3'
+        elif '自動' in msg:
+            r = '您想知道甚麼?  自動販賣機功能,請輸入1; 零件介紹,請輸入2; 學習板介紹,請輸入3'
+        elif '專題' in msg:
+            r = '您想知道甚麼?  專題內容請按4; 專題圖片請按5; 專題影片請按6'
         elif msg == '3':
             r = '貼圖'
         elif msg == '4':
