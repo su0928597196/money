@@ -63,7 +63,7 @@ def handle_message(event):
         elif msg == '1':
             r = '當程式運作時,步進馬達會旋轉,使上頭的鐵絲也跟著旋轉,最後架上的商品就會掉下來'
         elif msg == '2':
-            r = '步進馬達:利用程式碼能控制旋轉次數,也能用可變電阻來控制它的旋轉ˇ'
+            r = '步進馬達:利用程式碼能控制旋轉次數,也能用可變電阻來控制它的旋轉'
         elif msg == '3':
             
             image_message = ImageSendMessage(
