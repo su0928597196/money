@@ -60,9 +60,9 @@ def handle_message(event):
         elif msg == '3':
             r = ''
             image_message = ImageSendMessage(
-            original_content_url='https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg',
-            preview_image_url='https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg')
-        
+            original_content_url='https://direct.nuvoton.com/tw/learning-board-of-nuc140-series/original.jpg',
+            preview_image_url='https://direct.nuvoton.com/tw/learning-board-of-nuc140-series/preview.jpg')
+
         
         line_bot_api.reply_message(
         event.reply_token,
