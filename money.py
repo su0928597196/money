@@ -41,29 +41,32 @@ def handle_message(event):
     msg = event.message.text
     sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
     r = '請按照順序輸入1~5'
-    if msg == '5':
+    if msg == '謝謝':
         sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
         line_bot_api.reply_message(
         event.reply_token,
         sticker_message)
-    elif msg != '5':
+    elif msg != '謝謝':
         if '販賣機' in msg:
             r = '您想知道甚麼?  自動販賣機功能,請輸入1; 零件介紹,請輸入2; 學習板介紹,請輸入3'
         elif '自動' in msg:
             r = '您想知道甚麼?  自動販賣機功能,請輸入1; 零件介紹,請輸入2; 學習板介紹,請輸入3'
         elif '專題' in msg:
             r = '您想知道甚麼?  專題內容請按4; 專題圖片請按5; 專題影片請按6'
+        elif msg == '1':
+            r = '當程式運作時,步進馬達會旋轉,使上頭的鐵絲也跟著旋轉,最後架上的商品就會掉下來'
+        elif msg == '2':
+            r = '步進馬達:利用程式碼能控制旋轉次數,也能用可變電阻來控制它的旋轉ˇ'
         elif msg == '3':
-            r = '貼圖'
-        elif msg == '4':
-            r = '沒問題'
+            r = ''
+            image_message = ImageSendMessage(
+            original_content_url='https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg',
+            preview_image_url='https://direct.nuvoton.com/207-thickbox_default/learning-board-of-nuc140-series.jpg')
+        
         
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=r),sticker_message)
-        line_bot_api.reply_message(
-        event.reply_token,
-        sticker_message)
+        TextSendMessage(text=r))
 
 if __name__ == "__main__":
     app.run()
