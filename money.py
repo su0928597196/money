@@ -39,13 +39,12 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
-    sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
     r = '請按照順序輸入1~5'
     if msg == '謝謝':
-        sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
-        line_bot_api.reply_message(
-        event.reply_token,
-        sticker_message)
+        image_message = ImageSendMessage(
+        original_content_url='https://i.imgur.com/jIvkVXh.jpg',
+        preview_image_url='https://i.imgur.com/jIvkVXh.jpg')
+        line_bot_api.reply_message(event.reply_token, image_message)
     elif msg != '謝謝':
         if '販賣機' in msg:
             r = '您想知道甚麼?  自動販賣機功能,請輸入1; 零件介紹,請輸入2; 學習板介紹,請輸入3'
@@ -59,14 +58,14 @@ def handle_message(event):
             r = '步進馬達:利用程式碼能控制旋轉次數,也能用可變電阻來控制它的旋轉ˇ'
         elif msg == '3':
             r = '嗨'
-            image_message = ImageSendMessage(
-            original_content_url='https://i.imgur.com/jIvkVXh.jpg/original.jpg',
-            preview_image_url='https://i.imgur.com/jIvkVXh.jpg/preview.jpg')
-            line_bot_api.reply_message(event.reply_token, image_message)
         
         line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
+        sticker_message = StickerSendMessage(package_id='11537',sticker_id='52002734')
+        line_bot_api.reply_message(
+        event.reply_token,
+        sticker_message)
 
 if __name__ == "__main__":
     app.run()
